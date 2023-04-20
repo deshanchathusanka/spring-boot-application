@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class ShoppingCart {
-
+    private Integer cartId;
+    private boolean isQuote;
     private User user;
     private final List<Item> items;
 
@@ -22,12 +23,12 @@ public class ShoppingCart {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ShoppingCart that = (ShoppingCart) o;
-        return Objects.equals(user, that.user) && Objects.equals(items, that.items);
+        return isQuote == that.isQuote && Objects.equals(cartId, that.cartId) && Objects.equals(user, that.user) && Objects.equals(items, that.items);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, items);
+        return Objects.hash(cartId, isQuote, user, items);
     }
 
     public ShoppingCart addItem(Item item)
@@ -46,5 +47,21 @@ public class ShoppingCart {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Integer getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
+    }
+
+    public boolean isQuote() {
+        return isQuote;
+    }
+
+    public void setQuote(boolean quote) {
+        isQuote = quote;
     }
 }

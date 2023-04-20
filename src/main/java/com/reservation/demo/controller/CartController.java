@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * @author deshan
  */
 @RestController
+@RequestMapping(path = "v2/")
 public class CartController {
 
     /**
@@ -18,7 +19,7 @@ public class CartController {
      * @param cartId
      * @return shopping basket
      */
-    @GetMapping(path = "/read/{cartId}")
+    @GetMapping(path = "read/{cartId}")
     public @ResponseBody ShoppingCart readCart(@PathVariable Integer cartId,
                                                @RequestParam String sessionId) {
         return MockGenerator.getDummyCart();
